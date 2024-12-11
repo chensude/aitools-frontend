@@ -1,5 +1,30 @@
-# Vue 3 + TypeScript + Vite
+# AI Tools Hub Frontend
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+基于 Vue 3 + TypeScript + Element Plus 的 AI 工具集合平台前端项目。
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## 功能特性
+
+- 🔐 用户认证
+  - 登录/注册
+  - 邮箱验证
+  - JWT 认证
+- 🎯 AI 工具集成
+  - 文本处理
+  - 语音识别
+  - 视频处理
+- 💫 现代化UI
+  - 响应式设计
+  - 暗黑模式
+  - 动画效果
+
+## 技术栈
+
+- Vue 3
+- TypeScript
+- Vite
+- Element Plus
+- Vue Router
+- Pinia
+- Axios
+
+## 开发环境
