@@ -78,7 +78,6 @@ const handleLogin = async () => {
     if (valid) {
       loading.value = true
       try {
-        // 调用登录接口
         const response = await fetch('/api/auth/login', {
           method: 'POST',
           headers: {
@@ -92,15 +91,17 @@ const handleLogin = async () => {
         
         const data = await response.json()
         
-        if (response.ok) {
+        if (data.code === 200) {  // 明确检查成功状态码
           // 登录成功
           ElMessage.success('登录成功')
           // 存储token
-          localStorage.setItem('token', data.token)
+          localStorage.setItem('token', data.data.token)
           // 跳转到主页
           router.push('/dashboard')
-        } else {
-          ElMessage.error(data.message || '登录失败')
+        } else if (data.code === 401) {  // 处理认证失败
+          ElMessage.error(data.msg || '用户名或密码错误')
+        } else {  // 处理其他错误
+          ElMessage.error(data.msg || '登录失败')
         }
       } catch (error) {
         ElMessage.error('网络错误，请稍后重试')

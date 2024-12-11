@@ -9,7 +9,7 @@
             <el-avatar :size="40" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"/>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item @click="userStore.logout">退出登录</el-dropdown-item>
+                <el-dropdown-item @click="handleLogout">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -45,10 +45,21 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../store/user'
+import { ElMessage } from 'element-plus'
 import { Document, Microphone, VideoPlay, Key } from '@element-plus/icons-vue'
 
 const router = useRouter()
 const userStore = useUserStore()
+
+const handleLogout = () => {
+  try {
+    userStore.logout()
+    ElMessage.success('退出成功')
+    router.push('/')
+  } catch (error) {
+    ElMessage.error('退出失败')
+  }
+}
 
 const tools = ref([
   {
